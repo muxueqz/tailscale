@@ -40,10 +40,16 @@ jobs:
         GOARCH: amd64
       run: for d in $(go list -f '{{if .TestGoFiles}}{{.Dir}}{{end}}' ./... ); do (echo $d; cd $d && go test -c ); done
 
+    - name: macOS install cmd
+      env:
+        GOOS: darwin
+        GOARCH: amd64
+      run: go install tailscale.com/cmd/tailscale{,d}@main
+
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.3.1
       with:
         # Artifact name
         name: # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
-        path: 
+        path: $HOME/go/bin/tailscaled
