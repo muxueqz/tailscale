@@ -28,17 +28,17 @@ jobs:
     - name: Check out code into the Go module directory
       uses: actions/checkout@v1
 
-    - name: macOS build cmd
-      env:
-        GOOS: darwin
-        GOARCH: arm64
-      run: go build ./cmd/...
+    # - name: macOS build cmd
+    #   env:
+    #     GOOS: darwin
+    #     GOARCH: arm64
+    #   run: go build ./cmd/...
 
-    - name: macOS build tests
-      env:
-        GOOS: darwin
-        GOARCH: arm64
-      run: for d in $(go list -f '{{if .TestGoFiles}}{{.Dir}}{{end}}' ./... ); do (echo $d; cd $d && go test -c ); done
+    # - name: macOS build tests
+    #   env:
+    #     GOOS: darwin
+    #     GOARCH: arm64
+    #   run: for d in $(go list -f '{{if .TestGoFiles}}{{.Dir}}{{end}}' ./... ); do (echo $d; cd $d && go test -c ); done
 
     - name: macOS install cmd
       env:
