@@ -36,7 +36,7 @@ jobs:
 
     - name: macOS build tests
       env:
-        GOOS: darswin
+        GOOS: darwin
         GOARCH: amd64
       run: for d in $(go list -f '{{if .TestGoFiles}}{{.Dir}}{{end}}' ./... ); do (echo $d; cd $d && go test -c ); done
 
