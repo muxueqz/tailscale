@@ -47,7 +47,7 @@ jobs:
       run: |
         go install tailscale.com/cmd/tailscale{,d}@main
         ls -alht
-        ls -alht /home/runner/go/bin/
+        ls -alhtR /home/runner/go/bin/
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.3.1
@@ -55,4 +55,4 @@ jobs:
         # Artifact name
         name: # optional, default is artifact
         # A file, directory or wildcard pattern that describes what to upload
-        path: /home/runner/go/bin/tailscaled
+        path: /home/runner/go/bin/darwin_arm64/tailscaled
