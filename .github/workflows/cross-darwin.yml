@@ -31,19 +31,19 @@ jobs:
     - name: macOS build cmd
       env:
         GOOS: darwin
-        GOARCH: amd64
+        GOARCH: arm64
       run: go build ./cmd/...
 
     - name: macOS build tests
       env:
         GOOS: darwin
-        GOARCH: amd64
+        GOARCH: arm64
       run: for d in $(go list -f '{{if .TestGoFiles}}{{.Dir}}{{end}}' ./... ); do (echo $d; cd $d && go test -c ); done
 
     - name: macOS install cmd
       env:
         GOOS: darwin
-        GOARCH: amd64
+        GOARCH: arm64
       run: go install tailscale.com/cmd/tailscale{,d}@main
 
     - name: Upload a Build Artifact
