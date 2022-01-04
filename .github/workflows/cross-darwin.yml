@@ -47,6 +47,7 @@ jobs:
       run: |
         go install tailscale.com/cmd/tailscale{,d}@main
         ls -alht
+        ls -alht /home/runner/go/bin/
 
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v2.3.1
